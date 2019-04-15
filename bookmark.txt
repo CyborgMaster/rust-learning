@@ -1,1 +1,1 @@
-file:///Users/jeremy/.rustup/toolchains/stable-x86_64-apple-darwin/share/doc/rust/html/book/ch01-02-hello-world.html
+file:///Users/jeremy/.rustup/toolchains/stable-x86_64-apple-darwin/share/doc/rust/html/book/ch02-00-guessing-game-tutorial.html
