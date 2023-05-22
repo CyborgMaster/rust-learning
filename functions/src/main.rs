@@ -4,6 +4,6 @@ fn main() {
     a_function();
 }
 
-fn a_function() {
-    println!("another");
+fn a_function(x: i32) {
+    println!("another {x}");
 }
