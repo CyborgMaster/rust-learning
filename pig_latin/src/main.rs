@@ -1,9 +1,9 @@
 use lazy_static::lazy_static;
-use regex::Regex;
+use onig::Regex;
 
 fn pig_latin(s: &str) -> String {
     lazy_static! {
-        static ref WORDS: Regex = Regex::new("\\b").unwrap();
+        static ref WORDS: Regex = Regex::new(r"(?<!')\b(?!')").unwrap();
     }
     WORDS.split(s).map(pig_word).collect()
 }
@@ -17,6 +17,8 @@ fn pig_word(word: &str) -> String {
     if !first_char.is_alphabetic() {
         return word.to_string();
     }
+
+    // dbg!(word);
 
     let mut first = first_char.to_string();
     let mut rest = &word[first_char.len_utf8()..];
@@ -45,6 +47,6 @@ fn upcase_first_char(s: &str) -> String {
 }
 
 fn main() {
-    let s = pig_latin("Jeremy loves apples!  However, not bananas.");
+    let s = pig_latin("Jeremy loves apples!  However, not bananas. Here's a string.");
     println!("{}", s);
 }
